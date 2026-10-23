@@ -1,22 +1,49 @@
-name: IndexNow 每日定時提交
+name: 文檔更新時自動提交 IndexNow
 
 on:
-  schedule:
-    # 這裡使用國際標準時間 (UTC)。例如：每天台灣時間早上 7:00 執行 (UTC 23:00)
-    - cron: '0 23 * * *'
-  workflow_dispatch: # 允許你隨時手動點擊按鈕觸發執行
+  push:
+    branches:
+      - main  # 🌟 只有推送到主分支時才觸發
+    paths:
+      - 'README.md'      # 🌟 監控 README.md 更新
+      - '**.md'          # 🌟 監控任何根目錄或子目錄下的 Markdown 文檔更新
+
+  workflow_dispatch: # 保留手動觸發按鈕
 
 jobs:
-  indexnow:
+  submit-indexnow:
     runs-on: ubuntu-latest
     steps:
+      # 1. 🌟 關鍵：必須 Checkout Repository 並設定 fetch-depth: 0
+      # 這樣 GitHub Pages 部署時，Jekyll 才能讀取到每個 .md 檔案的 Git 修改時間
+      - name: Checkout Repository
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      # 2. 動態等待，每 15 秒檢查一次線上 sitemap，最多等 3 分鐘
+      # 這是為了確保 GitHub Pages 後台已經把你的新文檔和新 Sitemap 編譯並發布上線了
+      - name: Wait for GitHub Pages to Deploy
+        run: |
+          echo "正在等待 GitHub Pages 雲端編譯與部署完成..."
+          sleep 40 # 先行強制等待 40 秒，給 GitHub Pages 後台反應時間
+          
+          for i in {1..12}; do
+            echo "檢查線上 Sitemap 是否已就緒... (嘗試 $i/12)"
+            curl -sL https://giantlucy.win/sitemap.xml > /tmp/online_sitemap.xml
+            # 檢查線上的 sitemap 是否已經成功包含了 lastmod 標籤
+            if grep -q "<lastmod>" /tmp/online_sitemap.xml; then
+               echo "🎉 線上 Sitemap 已成功生成，且包含時間欄位！"
+               break
+            fi
+            sleep 15
+          done
+
+      # 3. 執行 IndexNow 提交（直接讀取帶有時間戳記的線上 sitemap）
       - name: 執行 IndexNow 提交
         uses: bojieyang/indexnow-action@v3
         with:
           sitemap-location: 'https://giantlucy.win/sitemap.xml'
           key: ${{ secrets.INDEXNOW_KEY }}
-          
-          # 【進階參數設定】
-          # since: 1 搭配 since-unit: day，代表只提交過去 24 小時內有修改（lastmod）的網址
           since: 1
           since-unit: 'day'
