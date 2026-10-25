@@ -32,7 +32,7 @@ jobs:
             echo "檢查線上 Sitemap 是否已就緒... (嘗試 $i/12)"
             
             # 1. 抓取並存入 /tmp
-            curl -sL "https://giantlucy.win/sitemap.xml" > /tmp/online_sitemap.xml
+            curl -sL -A "Mozilla/5.0 (compatible; Googlebot/2.1; +http://google.com)" "https://giantlucy.win/sitemap.xml" > /tmp/online_sitemap.xml
             
             # 2. 【核心調試】打印出抓到文件的前 15 行，看看裡面到底是什麼鬼東西！
             echo "👉 線上抓取到的實際內容前 15 行為："
