@@ -30,7 +30,7 @@ jobs:
           for i in {1..12}; do
             echo "檢查線上 Sitemap 是否已就緒... (嘗試 $i/12)"
             # 在網址後方加上隨機的 run_id，強迫 Cloudflare 回源站拿最新的資料，防止拿到舊快取
-            curl -sL "https://giantlucy.win/sitemap.xml?v={{ github.run_id }}" > /tmp/online_sitemap.xml
+            curl -sL "https://giantlucy.win{{ github.run_id }}" > /tmp/online_sitemap.xml
             
             if grep -q "<lastmod>" /tmp/online_sitemap.xml; then
                echo "🎉 線上 Sitemap 已成功更新上線！"
