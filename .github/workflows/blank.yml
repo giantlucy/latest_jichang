@@ -15,47 +15,12 @@ jobs:
   submit-indexnow:
     runs-on: ubuntu-latest
     steps:
-      # 1. 🌟 關鍵：必須 Checkout Repository 並設定 fetch-depth: 0
-      # 這樣 GitHub Pages 部署時，Jekyll 才能讀取到每個 .md 檔案的 Git 修改時間
-      - name: Checkout Repository
-        uses: actions/checkout@v7
-        with:
-          fetch-depth: 0
-
-      - name: Wait for GitHub Pages to Deploy
-        run: |
-          set -euo pipefail
-          echo "正在等待 GitHub Pages 雲端編譯與部署完成..."
-          sleep 40 # 先行強制等待 40 秒，給 GitHub Pages 後台反應時間
-          
-          ready=0
-          for i in $(seq 1 12); do
-            echo "檢查線上 Sitemap 是否已就緒... (嘗試 $i/12)"
-            curl -sL -f "https://giantlucy.github.io/latest_jichang/sitemap.xml" > /tmp/online_sitemap.xml || {
-              echo "⚠️ curl 請求失敗，繼續等待"
-              sleep 15
-              continue
-            }
-            if grep -q "<lastmod>" /tmp/online_sitemap.xml; then
-               echo "🎉 線上 Sitemap 已成功生成，且包含時間欄位！"
-               ready=1
-               break
-            fi
-            sleep 15
-          done
-
-          if [[ $ready -ne 1 ]]; then
-            echo "❌ 超時：等待 3 分鐘後 sitemap 仍然沒有 <lastmod>，部署可能失敗"
-            exit 1
-          fi
-
-
-
+      
       # 3. 執行 IndexNow 提交（直接讀取帶有時間戳記的線上 sitemap）
       - name: 執行 IndexNow 提交
         uses: bojieyang/indexnow-action@v3
         with:
-          sitemap-location: 'https://giantlucy.github.io/latest_jichang/sitemap.xml'
+          sitemap-location: 'https://giantlucy.win/sitemap.xml'
           key: ${{ secrets.INDEXNOW_KEY }}
           since: 1
           since-unit: 'day'
