@@ -30,10 +30,10 @@ jobs:
           
           for i in {1..12}; do
             echo "檢查線上 Sitemap 是否已就緒... (嘗試 $i/12)"
-            curl -sL https://giantlucy.win/sitemap.xml > /tmp/online_sitemap.xml 2>/tmp/curl.log
-            cat /tmp/curl.log
+            curl -sL https://giantlucy.win/sitemap.xml > /home/runner/work/_temp/online_sitemap.xml
+           
             # 檢查線上的 sitemap 是否已經成功包含了 lastmod 標籤
-            if grep -q "<lastmod>" /tmp/online_sitemap.xml; then
+            if grep -q "<lastmod>" /home/runner/work/_temp/online_sitemap.xml; then
                echo "🎉 線上 Sitemap 已成功生成，且包含時間欄位！"
                break
             fi
