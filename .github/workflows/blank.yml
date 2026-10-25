@@ -31,7 +31,7 @@ jobs:
           ready=0
           for i in $(seq 1 12); do
             echo "檢查線上 Sitemap 是否已就緒... (嘗試 $i/12)"
-            curl -sL -f "https://giantlucy.win/sitemap.xml" > /tmp/online_sitemap.xml || {
+            curl -sL -f "https://giantlucy.github.io/latest_jichang/sitemap.xml" > /tmp/online_sitemap.xml || {
               echo "⚠️ curl 請求失敗，繼續等待"
               sleep 15
               continue
@@ -55,7 +55,7 @@ jobs:
       - name: 執行 IndexNow 提交
         uses: bojieyang/indexnow-action@v3
         with:
-          sitemap-location: 'https://giantlucy.win/sitemap.xml'
+          sitemap-location: 'https://giantlucy.github.io/latest_jichang/sitemap.xml'
           key: ${{ secrets.INDEXNOW_KEY }}
           since: 1
           since-unit: 'day'
