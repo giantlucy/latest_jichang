@@ -7,7 +7,6 @@ layout: null
     {% if page.url contains '.html' or page.url == '/' %}
     <url>
       <loc>{{ site.url }}{{ page.url | remove: "index.html" }}</loc>
-      <lastmod>{{ page.last_modified_at | default: site.time | date_to_xmlschema }}</lastmod>
     </url>
     {% endif %}
   {% endfor %}
