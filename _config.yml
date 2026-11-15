@@ -10,17 +10,14 @@ markdown: kramdown
 url: "https://giantlucy.win"
 baseurl: "" 
 
-# 1. 启用自动处理标题的插件
+# 关键设置 1：排除 README.md，防止 GitHub Pages 继续把它编译成重复网页
+exclude:
+  - README.md
+
+# 关键设置 2：仅为 Markdown 文件启用标题处理，不影响你手写的 index.html
 plugins:
   - jekyll-titles-from-headings
 
-# 2. 更改为开启状态，并设置剥离正文中的首个 h1
 titles_from_headings:
   enabled: true
   strip_title: true
-# 🌟 新增下方這段核心配置：強制讓首頁套用預設的主題排版
-defaults:
-  - scope:
-      path: "" # 代表全站，包含自動生成的 index.html
-    values:
-      layout: "default" # 套用主題的預設寬度居中樣式
