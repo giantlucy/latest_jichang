@@ -26,7 +26,7 @@
 
 ### 🔍 2026年主力自用稳定机场深度评测
 
-#### 📦 1. 魔戒（不清零）  [👉 最新可用地址 1](https://74.82.196.10:8000/register?aff=ZVJZHR8l) ｜ [最新可用地址 3](https://47.112.97.173:8000/register?aff=ZVJZHR8l) —— 性价比断层领先的「流量不清零」防失联机场推荐
+#### 📦 1. 魔戒（不清零）  [👉 最新官网1](https://74.82.196.10:8000/register?aff=ZVJZHR8l) ｜ [最新官网2](https://47.112.97.173:8000/register?aff=ZVJZHR8l) —— 性价比断层领先的「流量不清零」防失联机场推荐
 * **主要特点**：流量不清零，按量计费机场，节点长期稳定，我所在公司环境出现后两个机场无法使用的情况，该机场依然坚挺，特别是晚上速度很快
 * **基本盘评测**：
   魔戒机场是博主亲测且**稳定使用 3 年以上**的老牌经典。它最大的卖点在于打破了传统机场按月续费的死板模式，实行罕见的**按量计费且流量永不过期**的模式。由于官网地址经常被墙，本站会在此持续发布最新的魔戒可用地址。对于平时用量极少、或者纯粹担心主力线路突然失联需要临时“翻墙买药”的朋友来说，这是公认最划算的备用机场首选。
@@ -53,7 +53,7 @@
 ---
 
 
-#### 🌐 3. v2free（多节点）[官网1](https://w1.soxo.top/auth/register?code=QKu7#tt) &ensp; [官网2](https://w2.xmoney.top/auth/register?code=QKu7#tt) &ensp; [官网3](https://w1.xmoney.top/auth/register?code=QKu7#tt)  &ensp; [官网4](https://cdn.xmoney.top/auth/register?code=QKu7#tt)  ——  100+ 全球多节点网络的高端稳定机场推荐
+#### 🌐 3. v2free（多节点）[最新官网1](https://w1.soxo.top/auth/register?code=QKu7#tt) &ensp; [最新官网2](https://w2.xmoney.top/auth/register?code=QKu7#tt) &ensp; [最新官网3](https://w1.xmoney.top/auth/register?code=QKu7#tt)  &ensp; [最新官网4](https://cdn.xmoney.top/auth/register?code=QKu7#tt)  ——  100+ 全球多节点网络的高端稳定机场推荐
 * **主要特点**：节点多，100+节点，老牌稳定机场，提供原生IP家宽，应急翻墙机场
 * **基本盘评测**：
   v2free 是一家主打“节点规模与多协议覆盖”的实力派老店。其在全球范围内拥有 **`100+` 高速优质服务器节点**。虽然它的入门门槛在三家当中略显偏贵，但在面临重大网络波动或极端晚高峰拥堵时，它凭借庞大的节点备用矩阵和丰富的协议底座，往往能成为您极其可靠的应急方案。
